@@ -10,12 +10,15 @@ all: build check-codestyle mypy test docs
 .PHONY: build
 build: .git/hooks/pre-commit poetry.lock
 
+.first-build:
+	touch .first-build
+
 #* Poetry
 .PHONY: poetry-download
 poetry-download:
 	pipx install poetry
 
-poetry.lock: pyproject.toml
+poetry.lock: pyproject.toml .first-build
 	poetry lock -n --no-update
 	poetry install -n
 	-poetry run mypy --install-types --non-interactive ./src ./tests
