@@ -71,5 +71,5 @@ update-dev-deps: poetry.lock
 	poetry update --only dev
 
 .PHONY: docs
-docs: poery.lock
+docs: poetry.lock
 	poetry run sphinx-build docs/ docs/_build
