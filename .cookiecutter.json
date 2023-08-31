@@ -1,0 +1,16 @@
+{
+  "_output_dir": "/home/stefans/smol_projects/bleach/cookiecut",
+  "_repo_dir": "/home/stefans/.cookiecutters/cookiecutter-modernish-python",
+  "_template": "https://github.com/StefansM/cookiecutter-modernish-python.git",
+  "author": "Stefans Mezulis",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "stefans.mezulis@gmail.com",
+  "friendly_name": "Acme Bleach",
+  "github_user": "stefansm",
+  "license": "MIT",
+  "package_name": "acme_bleach",
+  "project_name": "acme-bleach",
+  "python_version": "3.10",
+  "version": "0.0.0"
+}
