@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# Copied from templated pre-commit file
-ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=pre-commit)
-
-HERE="$(cd "$(dirname "$0")" && pwd)"
-ARGS+=(--hook-dir "$HERE" -- "$@")
-
-poetry run python -mpre_commit "${ARGS[@]}"
