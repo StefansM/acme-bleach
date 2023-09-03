@@ -34,15 +34,16 @@ To bleach it, run the following command:
 $ bleach bleach hello.py -o hello-bleached.py
 ```
 
-The result is a bleached version of the original script. The contents of `hello-bleached.py` are:
+The result is a bleached version of the original script. The contents of
+`hello-bleached.py` are (representing tabs with `»»»»` and spaces with `·`):
 
 ```python
 # coding=bleach
-
-
-
-
-
+»»»»···»»»»»»»»»»»»»»»»»···»»»»»·»»»»»»»··»»·»»»»»»»·»»»··»»···»»»»»···»·»»»»»»»
+»»»»»»»»·»»»·»»»»»»»»»»»»»»»»»»»·»»»»»»»»»»»·»»»»»»»·»»»»»»»·»»»»»»»»»»»»»»»··»»»»»»·»»»·»»»··»»··»»»»»»
+»»»»··»»··»»»»»»»»»»··»»····»»»»»»»»·»»»··»»»»»»»»»»»»»»·»»»»»»»»»»»»»»»»»»»»»»»···»···
+»»»»··»»····»»»»···»»»»»·»»»»»»»··»»··»»»»»»»»»»··»»»»»»·»»»»»»»»»»»»»»»·»»»»»»»»»»»»»»»·
+»»»»»»»»·»»»»»»»»»»»·»»»»»»»»»»»·»»»·»»»»»»»·»»»»»»»»»»»»»»»·»»»·»»»
 ```
 
 ### Running
