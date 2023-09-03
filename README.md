@@ -48,7 +48,7 @@ The result is a bleached version of the original script. The contents of
 
 ### Running
 
-Which you can run with `bleach run`:
+You can run the bleached file using `bleach run`:
 
 ```console
 $ bleach run hello-bleached.py
