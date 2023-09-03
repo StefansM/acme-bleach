@@ -5,6 +5,8 @@ import typing
 
 import click
 
+import acme.bleach.codec  # noqa: F401
+
 
 PTH_CONTENTS = """\
 # Provides the bleach codec to scripts
