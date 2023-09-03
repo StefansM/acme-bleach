@@ -64,11 +64,16 @@ mypy: poetry.lock
 	poetry run mypy --config-file pyproject.toml ./src ./tests
 
 .PHONY: lint
-lint: test check-codestyle mypy check-safety
+lint: test check-codestyle mypy
+
+.PHONY: pre-commit
+pre-commit: .git/hooks/pre-commit
+	poetry run pre-commit run --all-files
 
 .PHONY: update-dev-deps
 update-dev-deps: poetry.lock
 	poetry update --only dev
+
 
 .PHONY: docs
 docs: poetry.lock
