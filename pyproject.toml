@@ -41,7 +41,7 @@ xdoctest = {extras = ["colors"], version = "^1.1.1"}
 myst-parser = {version = "^2.0.0"}
 
 [tool.poetry.scripts]
-acme-bleach = "acme_bleach.__main__:main"
+bleach = "acme.bleach.app:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

@@ -3,6 +3,6 @@
 ## acme_bleach
 
 ```{eval-rst}
-.. automodule:: acme_bleach
+.. automodule:: acme
    :members:
 ```

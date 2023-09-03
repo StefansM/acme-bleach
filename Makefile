@@ -44,7 +44,7 @@ pre-commit-install: .git/hooks/pre-commit
 #* Formatters
 .PHONY: format
 format: poetry.lock
-	poetry run pyupgrade --exit-zero-even-if-changed --py310-plus src/**/*.py tests/**/*.py
+	find src/ tests/ -name '*.py' | xargs poetry run pyupgrade --exit-zero-even-if-changed --py310-plus
 	poetry run isort --settings-path pyproject.toml ./src ./tests
 	poetry run black --config pyproject.toml ./src ./tests
 
