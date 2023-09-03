@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "acme-bleach"
-version = "0.1.0"
+version = "0.1.1"
 description = "Remove unsightly non-whitespace characters from your code."
 authors = ["Stefans Mezulis <stefans.mezulis@gmail.com>"]
 license = "MIT"
