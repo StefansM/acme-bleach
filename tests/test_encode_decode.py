@@ -11,15 +11,15 @@ print("Hello ")
 print("world.")
 """
 
-encoded = b"""\
-	   					   		 		  	 		 	  	   		   	 		
-		 	 					 			 		 		 				  		 	 	  	  		
-	  	  			  	    		 							 			 			 	 		 
-				 	 		   					   		 		  	 		 	  	   	
-	   	 				 	 					 			 		   	   	  	    
-	   		 		  	  			  		 				 	   			 			 	
-		 	 		 				 	 	
-"""
+encoded = (
+    b"	   					   		 		  	 		 	  	   		   	 		\n"
+    b"		 	 					 			 		 		 				  		 	 	  	  		\n"
+    b"	  	  			  	    		 							 			 			 	 		 \n"
+    b"				 	 		   					   		 		  	 		 	  	   	\n"
+    b"	   	 				 	 					 			 		   	   	  	    \n"
+    b"	   		 		  	  			  		 				 	   			 			 	\n"
+    b"		 	 		 				 	 	\n"
+)
 
 # This gets encoded to a file with a "# coding=bleach" header and executed.
 var_setting_example = """\

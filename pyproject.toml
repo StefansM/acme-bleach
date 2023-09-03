@@ -11,6 +11,9 @@ documentation = "https://acme-bleach.readthedocs.io"
 classifiers = [
     "Development Status :: 1 - Planning",
 ]
+packages = [
+    { include = "acme", from = "src" },
+]
 
 [tool.poetry.urls]
 Changelog = "https://github.com/stefansm/acme-bleach/releases"
@@ -37,8 +40,8 @@ pyupgrade = "^3.10.1"
 sphinx = "^7.2.5"
 sphinx-autobuild = "^2021.3.14"
 sphinx-click = "^5.0.1"
-xdoctest = {extras = ["colors"], version = "^1.1.1"}
-myst-parser = {version = "^2.0.0"}
+xdoctest = { extras = ["colors"], version = "^1.1.1" }
+myst-parser = { version = "^2.0.0" }
 
 [tool.poetry.scripts]
 bleach = "acme.bleach.app:main"
