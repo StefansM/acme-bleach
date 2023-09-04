@@ -1,8 +1,10 @@
 name: Tests
-
 on:
-  - push
-
+  push:
+    branches-ignore:
+      - main
+      - master
+  workflow_call: {}
 jobs:
   tests:
     name: ${{ matrix.session }} ${{ matrix.python }} / ${{ matrix.os }}
@@ -48,10 +50,3 @@ jobs:
       - name: Run Makfile
         run: |
           make ${{ matrix.session }}
-
-      - name: Upload documentation
-        if: matrix.session == 'docs'
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs/_build
