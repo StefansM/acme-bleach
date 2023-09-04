@@ -17,7 +17,7 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4.6.1
@@ -29,41 +29,37 @@ jobs:
           pip install --constraint=.github/workflows/constraints.txt pip
           pip --version
 
+      - name: Upgrade pipx
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pipx
+          pipx --version
+
       - name: Install Poetry
         run: |
-          pip install --constraint=.github/workflows/constraints.txt poetry
+          pipx install --pip-args=--constraint=.github/workflows/constraints.txt poetry
           poetry --version
 
-      - name: Check if there is a parent commit
-        id: check-parent-commit
+      - name: Initialise git config
         run: |
-          echo "::set-output name=sha::$(git rev-parse --verify --quiet HEAD^)"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
 
-      - name: Detect and tag new version
-        id: check-version
-        if: steps.check-parent-commit.outputs.sha
-        uses: salsify/action-detect-and-tag-new-version@v2.0.1
-        with:
-          version-command: |
-            bash -o pipefail -c "poetry version | awk '{ print \$2 }'"
+      - name: Detect new version
+        uses: Stefansm/nbgv.sh-action@main
+        id: version
 
-      - name: Bump version for developmental release
-        if: "! steps.check-version.outputs.tag"
+      - name: Tag new version
         run: |
-          poetry version patch &&
-          version=$(poetry version | awk '{ print $2 }') &&
-          poetry version $version.dev.$(date +%s)
+          git tag v${{ steps.version.outputs.version }} &&
+          git push --tags
+
+      - name: Set version with Poetry
+        run: |
+          poetry version ${{ steps.version.outputs.version }}
 
       - name: Build package
         run: |
           poetry build --ansi
 
       - name: Publish package on PyPI
-        if: steps.check-version.outputs.tag
-        uses: pypa/gh-action-pypi-publish@v1.8.6
-
-      - name: Publish package on TestPyPI
-        if: "! steps.check-version.outputs.tag"
-        uses: pypa/gh-action-pypi-publish@v1.8.6
-        with:
-          repository_url: https://test.pypi.org/legacy/
+        uses: pypa/gh-action-pypi-publish@v1.8.10

@@ -1,7 +1,7 @@
 # Usage
 
 ```{eval-rst}
-.. click:: acme_bleach.__main__:main
-    :prog: acme-bleach
+.. click:: acme.bleach.app:main
+    :prog: bleach
     :nested: full
 ```
